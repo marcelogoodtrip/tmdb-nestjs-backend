@@ -20,4 +20,25 @@ export class TopMoviesService {
       { new: true },
     );
   }
+
+  // async getTopRatedMovies(): Promise<TopMovie[]> {
+  //   return this.topMovieModel
+  //     .aggregate([
+  //       {
+  //         $match: {
+  //           like: { $gt: 0 },
+  //         },
+  //       },
+  //       {
+  //         $sort: {
+  //           like: -1,
+  //         },
+  //       },
+  //     ])
+  //     .exec();
+  // }
+
+  async getTopRatedMovies(): Promise<TopMovie[]> {
+    return this.topMovieModel.find().sort({ like: -1 }).exec();
+  }
 }
