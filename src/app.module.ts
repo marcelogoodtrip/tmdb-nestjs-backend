@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { TopMoviesModule } from './modules/top-movies/top-movies.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { TopMoviesModule } from './modules/top-movies/top-movies.module';
 
 @Module({
   imports: [
