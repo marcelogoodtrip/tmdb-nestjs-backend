@@ -50,4 +50,26 @@ export class AuthService {
 
     return { token };
   }
+
+  isLoggedIn(request: Request): boolean {
+    // Obtenha o token do cabeçalho da requisição
+    const authHeader = request.headers['authorization'];
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return false; // Token ausente ou no formato incorreto
+    }
+
+    // Extrair o token do cabeçalho
+    const token = authHeader.substring(7); // Remove a parte 'Bearer ' do token
+
+    try {
+      // Verifique se o token é válido e não está expirado
+      const payload = this.jwtService.verify(token);
+
+      // Se o token for válido, o usuário está autenticado
+      return true;
+    } catch (error) {
+      // Se houver um erro ao verificar o token (expirado, inválido, etc.), o usuário não está autenticado
+      return false;
+    }
+  }
 }
