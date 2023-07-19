@@ -17,6 +17,9 @@ export class TopMoviesService {
   async getAllMovies(): Promise<TopMovie[]> {
     try {
       const movies = await this.topMovieModel.find().exec();
+      if (!movies || movies.length === 0) {
+        throw new NotFoundException('No movies found.');
+      }
       return movies;
     } catch (error) {
       throw new InternalServerErrorException(
@@ -26,6 +29,9 @@ export class TopMoviesService {
   }
 
   async getMovieById(id: number): Promise<TopMovie> {
+    if (isNaN(id) || id <= 0) {
+      throw new NotFoundException('Invalid movie ID.');
+    }
     try {
       const movie = await this.topMovieModel.findOne({ id }).exec();
       if (!movie) {
@@ -40,6 +46,9 @@ export class TopMoviesService {
   }
 
   async likeMovie(id: number): Promise<TopMovie> {
+    if (isNaN(id) || id <= 0) {
+      throw new NotFoundException('Invalid movie ID.');
+    }
     try {
       const movie = await this.topMovieModel
         .findOneAndUpdate({ id }, { $inc: { like: 1 } }, { new: true })
