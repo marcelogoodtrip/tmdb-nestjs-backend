@@ -1,10 +1,10 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from 'src/auth/auth.module';
 import { TopMoviesController } from './top-movies.controller';
 import { TopMoviesService } from './top-movies.service';
 import { TopMovieSchema } from '../schemas/movie.schema';
 import * as cors from 'cors';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [

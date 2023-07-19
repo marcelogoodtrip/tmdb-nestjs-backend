@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
+
 import { PassportModule } from '@nestjs/passport';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from './schemas/user.schema';
 import { JwtStrategy } from './jwt.strategy';
+import { AuthService } from './auth.service';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { JwtStrategy } from './jwt.strategy';
         return {
           secret: config.get<string>('JWT_SECRET'),
           signOptions: {
-            expiresIn: config.get<string | number>('JWT_EXPIRE'),
+            expiresIn: config.get<number>('JWT_EXPIRES'),
           },
         };
       },
@@ -26,6 +27,6 @@ import { JwtStrategy } from './jwt.strategy';
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
-  exports: [JwtStrategy, PassportModule],
+  exports: [AuthService, JwtStrategy, PassportModule],
 })
 export class AuthModule {}
