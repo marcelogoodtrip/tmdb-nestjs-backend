@@ -1,12 +1,14 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TopMoviesController } from 'src/controllers/top-movies/top-movies.controller';
-import { TopMovieSchema } from 'src/mongo/schemas/movie.schema';
-import { TopMoviesService } from 'src/services/top-movies/top-movies.service';
+import { AuthModule } from 'src/auth/auth.module';
+import { TopMoviesController } from './top-movies.controller';
+import { TopMoviesService } from './top-movies.service';
+import { TopMovieSchema } from '../schemas/movie.schema';
 import * as cors from 'cors';
 
 @Module({
   imports: [
+    AuthModule,
     MongooseModule.forFeature([{ name: 'TopMovie', schema: TopMovieSchema }]),
   ],
   controllers: [TopMoviesController],
