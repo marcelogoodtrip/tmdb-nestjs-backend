@@ -1,18 +1,33 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { TopMoviesService } from './top-movies.service';
-import { getModelToken } from '@nestjs/mongoose';
-import { TopMovie } from '../schemas/movie.schema';
-import { Model } from 'mongoose';
 import {
-  NotFoundException,
   InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
+import { getModelToken } from '@nestjs/mongoose';
+import { Test, TestingModule } from '@nestjs/testing';
+import { Model } from 'mongoose';
+import { TopMovie } from '../schemas/movie.schema';
+import { TopMoviesService } from './top-movies.service';
 
 describe('TopMoviesService', () => {
   let topMoviesService: TopMoviesService;
   let model: Model<TopMovie>;
 
-  const mockTopMoviesService = {};
+  const mockMovie = {
+    id: 569094,
+    title: 'Homem-Aranha: Através do Aranhaverso',
+    popularity: 1281.799,
+    release_date: '2023-05-31',
+    poster_path: '/xxPXsL8V95dTwL5vHWIIQALkJQS.jpg',
+    like: 2,
+  };
+
+  const mockMovieService = {
+    find: jest.fn(),
+    create: jest.fn(),
+    findById: jest.fn(),
+    findByIdAndUpdate: jest.fn(),
+    findByIdAndDelete: jest.fn(),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -20,7 +35,7 @@ describe('TopMoviesService', () => {
         TopMoviesService,
         {
           provide: getModelToken(TopMovie.name),
-          useValue: mockTopMoviesService,
+          useValue: mockMovieService,
         },
       ],
     }).compile();
@@ -31,98 +46,108 @@ describe('TopMoviesService', () => {
 
   describe('getAllMovies', () => {
     it('should fetch all movies successfully', async () => {
-      const mockMovies = [
-        { id: 1, name: 'Movie 1' },
-        { id: 2, name: 'Movie 2' },
-      ];
-      jest.spyOn(model, 'find').mockResolvedValueOnce(mockMovies);
+      jest.spyOn(model, 'find').mockResolvedValue([mockMovie]);
+
       const result = await topMoviesService.getAllMovies();
-      expect(result).toEqual(mockMovies);
+
+      expect(model.find).toHaveBeenCalled();
+      expect(result).toEqual([mockMovie]);
     });
 
     it('should throw InternalServerErrorException when fetching all movies fails', async () => {
-      jest.spyOn(model, 'find').mockRejectedValueOnce(new Error());
+      jest.spyOn(model, 'find').mockResolvedValue([]);
 
-      try {
-        await topMoviesService.getAllMovies();
-      } catch (error) {
-        expect(error).toBeInstanceOf(InternalServerErrorException);
-        expect(error.message).toEqual(
-          'Something went wrong while fetching all movies.',
-        );
-      }
+      await expect(topMoviesService.getAllMovies()).rejects.toThrow(
+        InternalServerErrorException,
+      );
     });
   });
 
   describe('getMovieById', () => {
+    const movieId = 1;
+    const mockMovie = { id: movieId, name: 'Movie 1', like: 10 };
+
     it('should fetch a movie by id successfully', async () => {
-      const movieId = 1;
-      const mockMovie = { id: movieId, name: 'Movie 1' };
-      jest.spyOn(model, 'findOne').mockResolvedValueOnce(mockMovie);
+      jest.spyOn(model, 'findOne').mockResolvedValue(mockMovie);
+
       const result = await topMoviesService.getMovieById(movieId);
+
+      expect(model.findOne).toHaveBeenCalledWith({ id: movieId });
       expect(result).toEqual(mockMovie);
     });
 
-    it('should throw NotFoundException when movie not found', async () => {
-      const movieId = 1;
-      jest.spyOn(model, 'findOne').mockReturnValueOnce(null);
+    it('should throw InternalServerErrorException when fetching a movie by id fails', async () => {
+      jest.spyOn(model, 'findOne').mockRejectedValue(new Error());
 
-      try {
-        await topMoviesService.getMovieById(movieId);
-      } catch (error) {
-        expect(error).toBeInstanceOf(NotFoundException);
-        expect(error.message).toEqual('Movie not found.');
-      }
+      await expect(topMoviesService.getMovieById(movieId)).rejects.toThrow(
+        InternalServerErrorException,
+      );
     });
 
-    it('should throw InternalServerErrorException when fetching a movie by id fails', async () => {
-      const movieId = 1;
-      jest.spyOn(model, 'findOne').mockRejectedValueOnce(new Error());
+    it('should throw NotFoundException when movie not found', async () => {
+      jest.spyOn(model, 'findOne').mockResolvedValue(null);
 
-      try {
-        await topMoviesService.getMovieById(movieId);
-      } catch (error) {
-        expect(error).toBeInstanceOf(InternalServerErrorException);
-        expect(error.message).toEqual(
-          'Something went wrong while fetching the movie.',
-        );
-      }
+      await expect(topMoviesService.getMovieById(movieId)).rejects.toThrow(
+        NotFoundException,
+      );
+    });
+
+    it('should throw NotFoundException when movieId is not a number', async () => {
+      await expect(topMoviesService.getMovieById(NaN)).rejects.toThrow(
+        NotFoundException,
+      );
+      await expect(topMoviesService.getMovieById(0)).rejects.toThrow(
+        NotFoundException,
+      );
+      await expect(topMoviesService.getMovieById(-1)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
   describe('likeMovie', () => {
+    const movieId = 1;
+    const mockMovie = { id: movieId, name: 'Movie 1', like: 10 };
+
     it('should update like count for a movie successfully', async () => {
-      const movieId = 1;
-      const mockMovie = { id: movieId, name: 'Movie 1', like: 5 };
-      jest.spyOn(model, 'findOneAndUpdate').mockResolvedValueOnce(mockMovie);
+      jest.spyOn(model, 'findOneAndUpdate').mockResolvedValue(mockMovie);
+
       const result = await topMoviesService.likeMovie(movieId);
+
+      expect(model.findOneAndUpdate).toHaveBeenCalledWith(
+        { id: movieId },
+        { $inc: { like: 1 } },
+        { new: true },
+      );
       expect(result).toEqual(mockMovie);
     });
 
-    it('should throw NotFoundException when movie to like is not found', async () => {
-      const movieId = 1;
-      jest.spyOn(model, 'findOneAndUpdate').mockReturnValueOnce(null);
+    it('should throw InternalServerErrorException when updating like count fails', async () => {
+      jest.spyOn(model, 'findOneAndUpdate').mockRejectedValue(new Error());
 
-      try {
-        await topMoviesService.likeMovie(movieId);
-      } catch (error) {
-        expect(error).toBeInstanceOf(NotFoundException);
-        expect(error.message).toEqual('Movie not found.');
-      }
+      await expect(topMoviesService.likeMovie(movieId)).rejects.toThrow(
+        InternalServerErrorException,
+      );
     });
 
-    it('should throw InternalServerErrorException when updating like count fails', async () => {
-      const movieId = 1;
-      jest.spyOn(model, 'findOneAndUpdate').mockRejectedValueOnce(new Error());
+    it('should throw NotFoundException when movie to like is not found', async () => {
+      jest.spyOn(model, 'findOneAndUpdate').mockResolvedValue(null);
 
-      try {
-        await topMoviesService.likeMovie(movieId);
-      } catch (error) {
-        expect(error).toBeInstanceOf(InternalServerErrorException);
-        expect(error.message).toEqual(
-          'Something went wrong while updating the like count.',
-        );
-      }
+      await expect(topMoviesService.likeMovie(movieId)).rejects.toThrow(
+        NotFoundException,
+      );
+    });
+
+    it('should throw NotFoundException when movieId is not a number', async () => {
+      await expect(topMoviesService.likeMovie(NaN)).rejects.toThrow(
+        NotFoundException,
+      );
+      await expect(topMoviesService.likeMovie(0)).rejects.toThrow(
+        NotFoundException,
+      );
+      await expect(topMoviesService.likeMovie(-1)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 });
