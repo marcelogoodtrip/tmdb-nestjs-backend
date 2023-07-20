@@ -7,11 +7,13 @@ import {
   Request,
   UnauthorizedException,
   UseGuards,
+  Body,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { TopMoviesService } from './top-movies.service';
 import { TopMovie } from '../schemas/movie.schema';
 import { AuthService } from 'src/auth/auth.service';
+import { CreateTopMovieDto } from '../dto/create-top-movie.dto';
 
 @Controller('top-movies')
 export class TopMoviesController {
@@ -23,6 +25,11 @@ export class TopMoviesController {
   @Get()
   async getAllMovies(): Promise<TopMovie[]> {
     return this.topMoviesService.getAllMovies();
+  }
+
+  @Post('save-top-movie')
+  async saveTopMovie(@Body() movie: CreateTopMovieDto): Promise<TopMovie> {
+    return this.topMoviesService.saveTopMovie(movie);
   }
 
   @Get(':id')
