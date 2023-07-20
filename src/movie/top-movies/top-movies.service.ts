@@ -6,6 +6,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { TopMovie } from '../schemas/movie.schema';
 import * as mongoose from 'mongoose';
+import { CreateTopMovieDto } from '../dto/create-top-movie.dto';
 
 @Injectable()
 export class TopMoviesService {
@@ -13,6 +14,18 @@ export class TopMoviesService {
     @InjectModel(TopMovie.name)
     private topMovieModel: mongoose.Model<TopMovie>,
   ) {}
+
+  async createTopMovie(
+    createTopMovieDto: CreateTopMovieDto,
+  ): Promise<TopMovie> {
+    const createTopMovie = new this.topMovieModel(createTopMovieDto);
+    return createTopMovie.save();
+  }
+
+  async saveTopMovie(movie: CreateTopMovieDto): Promise<TopMovie> {
+    const createTopMovie = new this.topMovieModel(movie);
+    return createTopMovie.save();
+  }
 
   async getAllMovies(): Promise<TopMovie[]> {
     try {
