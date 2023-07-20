@@ -26,7 +26,6 @@ export class TopMoviesController {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard())
   async getMovieById(
     @Param('id')
     id: number,
