@@ -1,0 +1,345 @@
+[{
+  "_id": {
+    "$oid": "64b92f30ced86801d120744c"
+  },
+  "id": 238,
+  "title": "O Poderoso Chefão",
+  "popularity": 128.723,
+  "release_date": "1972-03-14",
+  "poster_path": "/oJagOzBu9Rdd9BrciseCm3U3MCU.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.753Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:20.753Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d1207450"
+  },
+  "id": 122,
+  "title": "O Senhor dos Anéis: O Retorno do Rei",
+  "popularity": 97.4,
+  "release_date": "2003-12-01",
+  "poster_path": "/izPNMzffsgZUvlbiYlPxjFr3TAa.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.763Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T10:45:31.067Z"
+  },
+  "__v": 0,
+  "like": 6
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d120744e"
+  },
+  "id": 155,
+  "title": "Batman: O Cavaleiro das Trevas",
+  "popularity": 112.602,
+  "release_date": "2008-07-14",
+  "poster_path": "/iGZX91hIqM9Uu0KGhd4MUaJ0Rtm.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.758Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T11:13:39.337Z"
+  },
+  "__v": 0,
+  "like": 7
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d1207454"
+  },
+  "id": 129,
+  "title": "A Viagem de Chihiro",
+  "popularity": 95.5,
+  "release_date": "2001-07-20",
+  "poster_path": "/e7WdOF6j3wB5kFXIEoqGXKmGaTl.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.774Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:20.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d120744a"
+  },
+  "id": 569094,
+  "title": "Homem-Aranha: Através do Aranhaverso",
+  "popularity": 1181.02,
+  "release_date": "2023-05-31",
+  "poster_path": "/xxPXsL8V95dTwL5vHWIIQALkJQS.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.750Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T02:10:14.580Z"
+  },
+  "__v": 0,
+  "like": 1
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d1207452"
+  },
+  "id": 278,
+  "title": "Um Sonho de Liberdade",
+  "popularity": 96.881,
+  "release_date": "1994-09-23",
+  "poster_path": "/umX3lBhHoTV7Lsci140Yr8VpXyN.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.768Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:20.768Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207456"
+  },
+  "id": 372058,
+  "title": "Your Name.",
+  "popularity": 94.641,
+  "release_date": "2016-08-26",
+  "poster_path": "/7bAtBUQRC1M4zaIlihesBPTAJ8a.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.061Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T19:48:03.186Z"
+  },
+  "__v": 0,
+  "like": 2
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207458"
+  },
+  "id": 496243,
+  "title": "Parasita",
+  "popularity": 84.81,
+  "release_date": "2019-05-30",
+  "poster_path": "/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.064Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.064Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120745a"
+  },
+  "id": 680,
+  "title": "Pulp Fiction: Tempo de Violência",
+  "popularity": 82.447,
+  "release_date": "1994-09-10",
+  "poster_path": "/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.069Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T17:14:55.646Z"
+  },
+  "__v": 0,
+  "like": 1
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120745e"
+  },
+  "id": 497,
+  "title": "À Espera de um Milagre",
+  "popularity": 74.654,
+  "release_date": "1999-12-10",
+  "poster_path": "/14hEqW67IiHlKpzKMLUXyktzZIV.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.078Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.078Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120745c"
+  },
+  "id": 429,
+  "title": "Três Homens em Conflito",
+  "popularity": 74.919,
+  "release_date": "1966-12-23",
+  "poster_path": "/5KI3QNTtEUzuAOsX42aepAjHhYf.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.072Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.072Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207460"
+  },
+  "id": 13,
+  "title": "Forrest Gump: O Contador de Histórias",
+  "popularity": 71.442,
+  "release_date": "1994-06-23",
+  "poster_path": "/d74WpIsH8379TIL4wUxDneRCYv2.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.080Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.080Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207462"
+  },
+  "id": 240,
+  "title": "O Poderoso Chefão: Parte II",
+  "popularity": 69.073,
+  "release_date": "1974-12-20",
+  "poster_path": "/7g6wvsWHxBQujUcSXvZLhdFpDUy.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.129Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.129Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207464"
+  },
+  "id": 424,
+  "title": "A Lista de Schindler",
+  "popularity": 58.753,
+  "release_date": "1993-12-15",
+  "poster_path": "/bGhhNzJYDsuLruNN5bJ2PvLcMiq.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.132Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.132Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207466"
+  },
+  "id": 389,
+  "title": "12 Homens e uma Sentença",
+  "popularity": 56.057,
+  "release_date": "1957-04-10",
+  "poster_path": "/q8RGf4SbVCObCySZ4PIGsn5wFm6.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.161Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.161Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207468"
+  },
+  "id": 637,
+  "title": "A Vida é Bela",
+  "popularity": 53.634,
+  "release_date": "1997-12-20",
+  "poster_path": "/h8PEObIiYUo4wHGo2qgWge2wqzv.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.182Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.182Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120746a"
+  },
+  "id": 769,
+  "title": "Os Bons Companheiros",
+  "popularity": 53.054,
+  "release_date": "1990-09-12",
+  "poster_path": "/fnJcBTbNNUkcNmjqc7fF5ozzLDk.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.185Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120746c"
+  },
+  "id": 346,
+  "title": "Os Sete Samurais",
+  "popularity": 40.186,
+  "release_date": "1954-04-26",
+  "poster_path": "/telXEMxGtJvffm5JDsx1rQzwWlf.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.189Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.189Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120746e"
+  },
+  "id": 11216,
+  "title": "Cinema Paradiso",
+  "popularity": 39.917,
+  "release_date": "1988-11-17",
+  "poster_path": "/vjB2KkwdPp1Jk0LxCKfBFXJQVAo.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.207Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.207Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207470"
+  },
+  "id": 19404,
+  "title": "Dilwale vai levar a noiva",
+  "popularity": 38.657,
+  "release_date": "1995-10-20",
+  "poster_path": "/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.210Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T12:57:21.210Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "64b92f30ced86801d120744e"
+  },
+  "id": 155,
+  "title": "Batman: O Cavaleiro das Trevas",
+  "popularity": 112.602,
+  "release_date": "2008-07-14",
+  "poster_path": "/iGZX91hIqM9Uu0KGhd4MUaJ0Rtm.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.758Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T11:13:39.337Z"
+  },
+  "__v": 0,
+  "like": 7
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d1207450"
+  },
+  "id": 122,
+  "title": "O Senhor dos Anéis: O Retorno do Rei",
+  "popularity": 97.4,
+  "release_date": "2003-12-01",
+  "poster_path": "/izPNMzffsgZUvlbiYlPxjFr3TAa.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.763Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T10:45:31.067Z"
+  },
+  "__v": 0,
+  "like": 6
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d1207456"
+  },
+  "id": 372058,
+  "title": "Your Name.",
+  "popularity": 94.641,
+  "release_date": "2016-08-26",
+  "poster_path": "/7bAtBUQRC1M4zaIlihesBPTAJ8a.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.061Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T19:48:03.186Z"
+  },
+  "__v": 0,
+  "like": 2
+},
+{
+  "_id": {
+    "$oid": "64b92f30ced86801d120744a"
+  },
+  "id": 569094,
+  "title": "Homem-Aranha: Através do Aranhaverso",
+  "popularity": 1181.02,
+  "release_date": "2023-05-31",
+  "poster_path": "/xxPXsL8V95dTwL5vHWIIQALkJQS.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:20.750Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-21T02:10:14.580Z"
+  },
+  "__v": 0,
+  "like": 1
+},
+{
+  "_id": {
+    "$oid": "64b92f31ced86801d120745a"
+  },
+  "id": 680,
+  "title": "Pulp Fiction: Tempo de Violência",
+  "popularity": 82.447,
+  "release_date": "1994-09-10",
+  "poster_path": "/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg",
+  "createdAt": {
+    "$date": "2023-07-20T12:57:21.069Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-20T17:14:55.646Z"
+  },
+  "__v": 0,
+  "like": 1
+}]
